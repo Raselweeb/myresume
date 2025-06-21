@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বাংলাদেশ কারিগরি শিক্ষা বোর্ড-গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SolaimanLipi', 'Siyam Rupali', Arial, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #0066cc;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: #004499;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: #683091;
+            color: white;
+            border-radius: 3px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #5a2a7d;
+            color: white;
+        }
+        
+        /* Header Styles */
+        .top-bar {
+            background-color: #683091;
+            color: white;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 4px solid #8bc643;
+            font-size: 14px;
+        }
+        
+        .top-bar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .top-bar a {
+            color: white;
+        }
+        
+        .search-box {
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-box input {
+            padding: 3px 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            width: 150px;
+        }
+        
+        .search-box button {
+            padding: 3px 10px;
+            margin-left: 5px;
+            background-color: #8bc643;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .lang-switch {
+            margin-left: 15px;
+        }
+        
+        .lang-switch button {
+            padding: 3px 10px;
+            background-color: #683091;
+            color: white;
+            border: 1px solid white;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        /* Logo and Title */
+        .header-main {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            margin-right: 20px;
+        }
+        
+        .logo img {
+            height: 80px;
+            width: auto;
+        }
+        
+        .site-title {
+            color: #683091;
+        }
+        
+        .site-title h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .site-title h2 {
+            font-size: 18px;
+            color: #555;
+            font-weight: normal;
+        }
+        
+        /* Main Navigation */
+        .main-menu {
+            background-color: #f8f8f8;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background-color: #683091;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .menu-toggle i {
+            margin-left: 5px;
+        }
+        
+        .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+        
+        .menu-items > li {
+            position: relative;
+        }
+        
+        .menu-items > li > a {
+            display: block;
+            padding: 12px 15px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .menu-items > li:hover > a {
+            background-color: #e0e0e0;
+            color: #683091;
+        }
+        
+        .menu-items > li.home-icon > a {
+            padding: 12px 15px;
+            font-size: 18px;
+        }
+        
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: white;
+            width: 250px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .menu-items > li:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 15px;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .dropdown-menu li a:hover {
+            background-color: #f5f5f5;
+            color: #683091;
+        }
+        
+        /* Content Layout */
+        .content-wrapper {
+            display: flex;
+            margin: 25px 0 40px;
+        }
+        
+        .main-content {
+            flex: 3;
+            margin-right: 25px;
+        }
+        
+        .sidebar {
+            flex: 1;
+        }
+        
+        /* News Ticker */
+        .news-section {
+            background-color: #EFEFEF;
+            border: 1px solid #CCCCCC;
+            padding: 12px 15px;
+            margin-bottom: 25px;
+            border-radius: 3px;
+        }
+        
+        .news-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .news-header h5 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-right: 10px;
+            color: #333;
+        }
+        
+        .news-ticker {
+            position: relative;
+            overflow: hidden;
+            height: 24px;
+        }
+        
+        .news-ticker ul {
+            position: absolute;
+            width: 100%;
+        }
+        
+        .news-ticker li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .news-ticker li a {
+            color: #0066cc;
+        }
+        
+        .news-ticker li i {
+            color: #666;
+            font-size: 12px;
+        }
+        
+        .news-more {
+            float: right;
+            margin-top: 5px;
+        }
+        
+        /* Notice Board */
+        .notice-board {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 3px;
+        }
+        
+        .notice-board h2 {
+            color: #683091;
+            margin-bottom: 15px;
+            font-size: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .notice-ticker {
+            margin-bottom: 15px;
+        }
+        
+        .notice-ticker li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .notice-ticker li:last-child {
+            border-bottom: none;
+        }
+        
+        .notice-ticker li a {
+            color: #0066cc;
+            font-size: 14px;
+            display: block;
+        }
+        
+        .notice-more {
+            text-align: right;
+        }
+        
+        /* Service Boxes */
+        .service-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px 20px;
+        }
+        
+        .service-box {
+            flex: 1 0 calc(50% - 20px);
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 0 10px 20px;
+            min-width: 250px;
+            border-radius: 3px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .service-box:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+        
+        .service-box h4 {
+            color: #683091;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .service-box ul li {
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .service-box ul li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .service-box ul li a {
+            color: #0066cc;
+            font-size: 14px;
+            display: block;
+        }
+        
+        .service-box ul li a:hover {
+            color: #683091;
+            padding-left: 5px;
+        }
+        
+        .service-box img {
+            float: right;
+            margin-left: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            max-width: 100px;
+            height: auto;
+        }
+        
+        /* Sidebar Widgets */
+        .widget {
+            background-color: white;
+            border: 1px solid #ddd;
+            margin-bottom: 25px;
+            border-radius: 3px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .widget-title {
+            background-color: #683091;
+            color: white;
+            padding: 12px 15px;
+            font-size: 16px;
+            border-radius: 3px 3px 0 0;
+        }
+        
+        .widget-title a {
+            color: white;
+        }
+        
+        .widget-content {
+            padding: 15px;
+        }
+        
+        .official-profile {
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .official-profile img {
+            width: 100px;
+            height: 120px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        
+        .official-profile h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .official-profile p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .important-links li {
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .important-links li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .important-links li a {
+            color: #0066cc;
+            font-size: 14px;
+            display: block;
+        }
+        
+        .important-links li a:hover {
+            color: #683091;
+            padding-left: 5px;
+        }
+        
+        .widget-more {
+            text-align: center;
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0 20px;
+        }
+        
+        .footer-menu {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        
+        .footer-menu li {
+            margin: 0 15px 10px;
+        }
+        
+        .footer-menu li a {
+            color: white;
+            font-size: 14px;
+        }
+        
+        .footer-menu li a:hover {
+            color: #8bc643;
+        }
+        
+        .footer-info {
+            text-align: center;
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+        
+        .footer-credit {
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+            padding-top: 15px;
+            border-top: 1px solid #444;
+        }
+        
+        .footer-credit a {
+            color: #8bc643;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .main-content {
+                margin-right: 0;
+                margin-bottom: 25px;
+            }
+            
+            .service-box {
+                flex: 1 0 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .menu-items {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .menu-items.active {
+                display: flex;
+            }
+            
+            .menu-items > li {
+                width: 100%;
+                border-bottom: 1px solid #ddd;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+                background-color: #f0f0f0;
+            }
+            
+            .menu-items > li:hover .dropdown-menu {
+                display: block;
+            }
+            
+            .top-bar-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 8px 0;
+            }
+            
+            .search-box {
+                margin-top: 8px;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .site-title h1 {
+                font-size: 22px;
+            }
+            
+            .site-title h2 {
+                font-size: 16px;
+            }
+            
+            .search-box input {
+                width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-inner">
+                <div>
+                    <a href="http://www.bangladesh.gov.bd/" target="_blank"><i class="fas fa-external-link-alt"></i> বাংলাদেশ জাতীয় তথ্য বাতায়ন</a>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="খুঁজুন...">
+                    <button><i class="fas fa-search"></i></button>
+                    <div class="lang-switch">
+                        <button>English</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Logo and Title -->
+    <div class="header-main">
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="https://bteb.gov.bd/themes/responsive_npf/img/logo/logo.png" alt="BTEB Logo">
+                </div>
+                <div class="site-title">
+                    <h1>বাংলাদেশ কারিগরি শিক্ষা বোর্ড</h1>
+                    <h2>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Navigation -->
+    <div class="main-menu">
+        <div class="container">
+            <div class="menu-toggle">
+                মেনু নির্বাচন করুন <i class="fas fa-bars"></i>
+            </div>
+            <ul class="menu-items">
+                <li class="home-icon"><a href="/" title="Home"><i class="fas fa-home"></i></a></li>
+                <li>
+                    <a href="#">আমাদের সম্পর্কে</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">ইতিহাস</a></li>
+                        <li><a href="#">অবকাঠামো</a></li>
+                        <li><a href="#">কার্যক্রম</a></li>
+                        <li><a href="#">পরিচালনা পর্ষদ</a></li>
+                        <li><a href="#">কর্মকর্তা বৃন্দ</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">পাঠ্যক্রম</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">ডিপ্লোমা পর্যায়</a></li>
+                        <li><a href="#">এইচ এস সি পর্যায়</a></li>
+                        <li><a href="#">এস,এস,সি পর্যায়</a></li>
+                        <li><a href="#">সল্প মেয়াদী ও অন্যান্য</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">শিক্ষকদের তথ্য</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">ডিপ্লোমা লেভেল</a></li>
+                        <li><a href="#">এইচ এস সি লেভেল</a></li>
+                        <li><a href="#">এস এস সি লেভেল</a></li>
+                        <li><a href="#">সল্প মেয়াদী ও অন্যান্য</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">প্রকাশনা</a></li>
+                <li><a href="#">রেজাল্ট</a></li>
+                <li><a href="#">ডাউনলোড</a></li>
+                <li><a href="#">NTVQF ওয়েবসাইট</a></li>
+                <li><a href="#">ই-সেবা</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content-wrapper">
+            <!-- Left Content -->
+            <div class="main-content">
+                <!-- News Ticker -->
+                <!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বাংলাদেশ কারিগরি শিক্ষা বোর্ড</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* News Ticker Container */
+        .news-ticker-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 0 auto 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            max-width: 1200px;
+        }
+
+        /* Header with accent bar */
+        .ticker-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+
+        .ticker-header::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #683091, #8bc643);
+            border-radius: 3px;
+        }
+
+        .ticker-header h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #683091;
+            margin: 0 15px 0 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .ticker-header h2 i {
+            margin-right: 10px;
+            color: #8bc643;
+        }
+
+        /* Ticker Container with proper overflow handling */
+        .ticker-container {
+            position: relative;
+            height: 30px;
+            overflow: hidden;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Ticker Track - contains the scrolling items */
+        .ticker-track {
+            position: absolute;
+            white-space: nowrap;
+            will-change: transform;
+            display: inline-block;
+            animation: scrollTicker 40s linear infinite;
+            padding-right: 100%; /* Creates space for items to scroll into */
+        }
+
+        .ticker-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* Individual Ticker Items */
+        .ticker-item {
+            display: inline-block;
+            margin-right: 40px;
+            position: relative;
+            padding: 4px 12px;
+            background: rgba(235, 235, 235, 0.7);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .ticker-item:hover {
+            background: #683091;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(104, 48, 145, 0.2);
+        }
+
+        .ticker-item:hover a {
+            color: white;
+        }
+
+        .ticker-item:hover .ticker-date {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .ticker-item::after {
+            content: "•";
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #683091;
+            font-size: 20px;
+        }
+
+        .ticker-item:last-child::after {
+            display: none;
+        }
+
+        .ticker-item a {
+            color: #444;
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .ticker-date {
+            color: #683091;
+            font-size: 12px;
+            margin-left: 8px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        /* Animation */
+        @keyframes scrollTicker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Controls */
+        .ticker-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .ticker-nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        .ticker-nav button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            border: none;
+            color: #683091;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .ticker-nav button:hover {
+            background: #683091;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .ticker-nav button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .view-all-btn {
+            background: linear-gradient(90deg, #683091, #8bc643);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(104, 48, 145, 0.3);
+        }
+
+        .view-all-btn:hover {
+            background: linear-gradient(90deg, #5a2a7d, #7bb53a);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(104, 48, 145, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .news-ticker-section {
+                padding: 12px 15px;
+            }
+            
+            .ticker-header h2 {
+                font-size: 16px;
+            }
+            
+            .ticker-item {
+                margin-right: 30px;
+                padding: 3px 10px;
+            }
+            
+            .ticker-item::after {
+                right: -20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ticker-container {
+                height: 26px;
+            }
+            
+            .ticker-item a {
+                font-size: 13px;
+            }
+            
+            .ticker-date {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .ticker-header h2 {
+                font-size: 15px;
+            }
+            
+            .ticker-item {
+                margin-right: 25px;
+                padding: 2px 8px;
+            }
+            
+            .ticker-item::after {
+                right: -15px;
+                font-size: 16px;
+            }
+            
+            .ticker-nav {
+                display: none;
+            }
+            
+            .ticker-controls {
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced News Ticker Section -->
+    <div class="news-ticker-section">
+        <div class="ticker-header">
+            <h2><i class="fas fa-bullhorn"></i> সর্বশেষ খবর ও বিজ্ঞপ্তি</h2>
+        </div>
+        
+        <div class="ticker-container">
+            <div class="ticker-track">
+                <div class="ticker-item">
+                    <a href="#">ডিপ্লোমা-ইন-এগ্রিকালচার শিক্ষাক্রমের ২০২৪-২৫ শিক্ষাবর্ষের ভর্তি প্রক্রিয়া শুরু হবে ১৫ ফেব্রুয়ারি</a>
+                    <span class="ticker-date">(২০২৪-০১-২০)</span>
+                </div>
+                <div class="ticker-item">
+                    <a href="#">এইচএসসি (বিএমটি) পর্যায়ের পরীক্ষার সময়সূচী প্রকাশ</a>
+                    <span class="ticker-date">(২০২৪-০১-১৮)</span>
+                </div>
+                <div class="ticker-item">
+                    <a href="#">কারিগরি শিক্ষা বোর্ডের নতুন ওয়েবসাইট চালু</a>
+                    <span class="ticker-date">(২০২৪-০১-১৫)</span>
+                </div>
+                <div class="ticker-item">
+                    <a href="#">এসএসসি (ভোকেশনাল) পরীক্ষার ফলাফল প্রকাশ ৩০ জানুয়ারি</a>
+                    <span class="ticker-date">(২০২৪-০১-১০)</span>
+                </div>
+                <div class="ticker-item">
+                    <a href="#">ডিপ্লোমা ইন ইঞ্জিনিয়ারিং ভর্তি সংক্রান্ত বিজ্ঞপ্তি</a>
+                    <span class="ticker-date">(২০২৪-০১-০৫)</span>
+                </div>
+                <div class="ticker-item">
+                    <a href="#">জাতীয় দক্ষতা উন্নয়ন কর্মসূচীর রেজিস্ট্রেশন শুরু</a>
+                    <span class="ticker-date">(২০২৪-০১-০২)</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ticker-controls">
+            <div class="ticker-nav">
+                <button id="prevTicker" title="পূর্ববর্তী খবর"><i class="fas fa-chevron-left"></i></button>
+                <button id="nextTicker" title="পরবর্তী খবর"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <a href="/site/view/news" class="view-all-btn">সকল খবর দেখুন <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tickerTrack = document.querySelector('.ticker-track');
+            const tickerItems = document.querySelectorAll('.ticker-item');
+            const prevBtn = document.getElementById('prevTicker');
+            const nextBtn = document.getElementById('nextTicker');
+            
+            // Clone items for seamless looping
+            tickerItems.forEach(item => {
+                const clone = item.cloneNode(true);
+                tickerTrack.appendChild(clone);
+            });
+            
+            // Animation control
+            let animation = tickerTrack.style.animation;
+            let isPaused = false;
+            let currentPosition = 0;
+            const itemWidth = tickerItems[0].offsetWidth + 40; // width + margin
+            
+            // Pause on hover
+            tickerTrack.addEventListener('mouseenter', () => {
+                tickerTrack.style.animationPlayState = 'paused';
+                isPaused = true;
+            });
+            
+            tickerTrack.addEventListener('mouseleave', () => {
+                if (!isPaused) {
+                    tickerTrack.style.animationPlayState = 'running';
+                }
+            });
+            
+            // Manual navigation
+            nextBtn.addEventListener('click', () => {
+                currentPosition -= itemWidth;
+                if (currentPosition < -itemWidth * tickerItems.length) {
+                    currentPosition = 0;
+                }
+                tickerTrack.style.transform = `translateX(${currentPosition}px)`;
+                tickerTrack.style.transition = 'transform 0.5s ease';
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                currentPosition += itemWidth;
+                if (currentPosition > 0) {
+                    currentPosition = -itemWidth * (tickerItems.length - 1);
+                }
+                tickerTrack.style.transform = `translateX(${currentPosition}px)`;
+                tickerTrack.style.transition = 'transform 0.5s ease';
+            });
+            
+            // Auto-scroll with better performance
+            let scrollInterval = setInterval(() => {
+                if (!isPaused) {
+                    currentPosition -= 1;
+                    if (currentPosition < -itemWidth * tickerItems.length) {
+                        currentPosition = 0;
+                        tickerTrack.style.transition = 'none';
+                        tickerTrack.style.transform = `translateX(${currentPosition}px)`;
+                        // Force reflow
+                        void tickerTrack.offsetWidth;
+                    }
+                    tickerTrack.style.transition = 'transform 0.1s linear';
+                    tickerTrack.style.transform = `translateX(${currentPosition}px)`;
+                }
+            }, 30);
+            
+            // Pause/play functionality (optional)
+            const pausePlayTicker = () => {
+                isPaused = !isPaused;
+                tickerTrack.style.animationPlayState = isPaused ? 'paused' : 'running';
+            };
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                // Recalculate item width on resize
+                itemWidth = tickerItems[0].offsetWidth + 40;
+            });
+        });
+    </script>
+</body>
+</html>
+                
+                <!-- Notice Board -->
+                <div class="notice-board">
+                    <h2><i class="fas fa-clipboard-list"></i> নোটিশ বোর্ড</h2>
+                    <div class="notice-ticker">
+                        <ul>
+                            <li><a href="#">এইচএসসি (বিএমটি) শিক্ষাক্রমে পাঠদান নবায়ন প্রসঙ্গে</a></li>
+                            <li><a href="#">জাতীয় দক্ষতামান বেসিক (৩৬০ ঘন্টা) শিক্ষাক্রমের জুলাই-সেপ্টেম্বর, জুলাই-ডিসেম্বর ও অক্টোবর-ডিসেম্বর ২০২৪ সেশনের রেজিস্ট্রেশন প্রসঙ্গে</a></li>
+                            <li><a href="#">এসএসসি (ভোকেশনাল) ও দাখিল (ভোকেশনাল) পরীক্ষা-২০২৫ এর কন্ট্রোল রুম খোলা প্রসঙ্গে</a></li>
+                            <li><a href="#">২০২৪ সনে অনুষ্ঠিত এসএসসি (ভোকেশনাল) ও দাখিল (ভোকেশনাল) নবম শ্রেণির সমাপনী পরীক্ষার উত্তরপত্র মূল্যায়ন প্রসঙ্গে</a></li>
+                        </ul>
+                    </div>
+                    <div class="notice-more">
+                        <a href="/site/view/notices" class="btn">সকল নোটিশ <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Service Boxes -->
+                <div class="service-row">
+                    <div class="service-box">
+                        <h4><i class="fas fa-bell"></i> বিজ্ঞপ্তি</h4>
+                        <ul>
+                            <li><a href="#">ডিপ্লোমা পর্যায়</a></li>
+                            <li><a href="#">এইচ এস সি পর্যায়</a></li>
+                            <li><a href="#">এস,এস,সি পর্যায়</a></li>
+                            <li><a href="#">সল্প মেয়াদী ও অন্যান্য</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-box">
+                        <img src="https://bteb.gov.bd/sites/default/files/files/bteb.portal.gov.bd/front_service_box/679bbc53_109e_4979_8c69_0987d6b327b1/images.jpg" alt="Admission">
+                        <h4><i class="fas fa-user-graduate"></i> অনলাইনে ভর্তি (সেশনঃ ২০২৪-২০২৫)</h4>
+                        <ul>
+                            <li><a href="#">সরকারি ও বেসরকারি সকল শিক্ষাক্রমে ভর্তি</a></li>
+                            <li><a href="#">প্রতিষ্ঠানের তালিকা</a></li>
+                            <li><a href="#">ভর্তির নীতিমালা</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-row">
+                    <div class="service-box">
+                        <h4><i class="fas fa-laptop"></i> ই-সেবা (অনলাইন সেবা প্রদান)</h4>
+                        <ul>
+                            <li><a href="#">শিক্ষার্থী তথ্য সংশোধন</a></li>
+                            <li><a href="#">ই-সেবা প্রতিষ্ঠান প্যানেল</a></li>
+                            <li><a href="#">ই-সেবা বাকাশিবো প্যানেল</a></li>
+                            <li><a href="#">বিদেশগামী নাগরিকদের সার্টিফিকেট সত্যয়ন</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-box">
+                        <img src="https://bteb.gov.bd/sites/default/files/files/bteb.portal.gov.bd/front_service_box/0e03ee70_4d6d_47f8_8a9a_e2570b49c740/form2.jpg" alt="Forms">
+                        <h4><i class="fas fa-file-alt"></i> ফর্ম ফিলআপ</h4>
+                        <ul>
+                            <li><a href="#">ডিপ্লোমা পর্যায়</a></li>
+                            <li><a href="#">এইচ এস সি পর্যায়</a></li>
+                            <li><a href="#">এস,এস,সি পর্যায়</a></li>
+                            <li><a href="#">সল্প মেয়াদী ও অন্যান্য</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-row">
+                    <div class="service-box">
+                        <img src="https://bteb.gov.bd/sites/default/files/files/bteb.portal.gov.bd/front_service_box/7e3930d8_164f_473b_9e23_b3cedc804f76/cropped_Q1rxzl1hpu_1_r3i9qo%20(1).png" alt="Institute">
+                        <h4><i class="fas fa-university"></i> ইনস্টিটিউট কর্ণার</h4>
+                        <ul>
+                            <li><a href="#">ইনস্টিটিউট লগইন (এসএসসি ও এইচএসসি পর্যায়)</a></li>
+                            <li><a href="#">ইনস্টিটিউট লগইন (ডিপ্লোমা ও সার্টিফিকেট পর্যায়)</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-box">
+                        <img src="https://bteb.gov.bd/sites/default/files/files/bteb.portal.gov.bd/front_service_box/feb11667_ee0d_4c4a_b1e5_36c94919bbce/number.jpg" alt="Online Info">
+                        <h4><i class="fas fa-database"></i> অনলাইন তথ্য প্রেরণ/গ্রহণ</h4>
+                        <ul>
+                            <li><a href="#">ডিপ্লোমা পর্যায়</a></li>
+                            <li><a href="#">TC/PC/PF/IA মার্ক ও GPA এন্ট্রি</a></li>
+                            <li><a href="#">Center Examinee & Absent/Expelled তথ্য প্রেরণ</a></li>
+                            <li><a href="#">Institute Account এবং Teacher List এন্ট্রি</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Sidebar -->
+            <div class="sidebar">
+                <!-- Chairman Profile -->
+                <div class="widget">
+                    <div class="widget-title">
+                        চেয়ারম্যান, বাংলাদেশ কারিগরি শিক্ষা বোর্ড
+                    </div>
+                    <div class="official-profile">
+                        <img src="https://bteb.gov.bd/sites/default/files/files/bteb.portal.gov.bd/office_head/f5018b0a_e932_46d5_b64f_b56b0880d219/rakib-ullah.jpg" alt="Chairman">
+                        <h3>প্রকৌশলী মোঃ রকিব উল্লাহ</h3>
+                        <p>চেয়ারম্যান</p>
+                        <a href="#" class="btn">বিস্তারিত <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Secretary Profile -->
+                <div class="widget">
+                    <div class="widget-title">
+                        সচিব, বাংলাদেশ কারিগরি শিক্ষা বোর্ড
+                    </div>
+                    <div class="official-profile">
+                        <img src="https://bteb.gov.bd/sites/default/files/files/bteb.portal.gov.bd/office_head/0237bfdd_a885_4859_99b4_127d13531ae2/al-masud-karim.jpg" alt="Secretary">
+                        <h3>জনাব মোঃ আল মাসুদ করিম</h3>
+                        <p>সচিব (উপসচিব)</p>
+                        <a href="#" class="btn">বিস্তারিত <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Internal eServices -->
+                <div class="widget">
+                    <div class="widget-title">
+                        <a href="#">অভ্যন্তরীণ ই-সেবাসমূহ</a>
+                    </div>
+                    <div class="widget-content">
+                        <ul class="important-links">
+                            <li><a href="#"><i class="fas fa-envelope"></i> ওয়েব মেইল</a></li>
+                        </ul>
+                    </div>
+                    <div class="widget-more">
+                        <a href="#" class="btn">সকল <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Central eServices -->
+                <div class="widget">
+                    <div class="widget-title" style="background-color: #609513;">
+                        <a href="#">কেন্দ্রীয় ই-সেবা</a>
+                    </div>
+                    <div class="widget-content">
+                        <img src="https://bangladesh.gov.bd/sites/default/files/files/bangladesh.gov.bd/page/1c9f9c0d_0c3e_4b5b_9c0d_5d5a5c5d5d5d/central-eservice.jpg" alt="Central eServices" style="width: 100%;">
+                    </div>
+                </div>
+                
+                <!-- Important Links -->
+                <div class="widget">
+                    <div class="widget-title">
+                        গুরুত্বপূর্ণ লিংক
+                    </div>
+                    <div class="widget-content">
+                        <ul class="important-links">
+                            <li><a href="http://www.bangladesh.gov.bd/"><i class="fas fa-external-link-alt"></i> গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</a></li>
+                            <li><a href="http://www.moedu.gov.bd/"><i class="fas fa-external-link-alt"></i> শিক্ষা মন্ত্রণালয়</a></li>
+                            <li><a href="http://www.educationboard.gov.bd/"><i class="fas fa-external-link-alt"></i> আন্ত: শিক্ষা বোর্ড</a></li>
+                            <li><a href="https://tmed.gov.bd/"><i class="fas fa-external-link-alt"></i> কারিগরি ও মাদ্রাসা শিক্ষা বিভাগ</a></li>
+                            <li><a href="https://techedu.gov.bd"><i class="fas fa-external-link-alt"></i> কারিগরি শিক্ষা অধিদপ্তর</a></li>
+                            <li><a href="http://www.banbeis.gov.bd/"><i class="fas fa-external-link-alt"></i> বেনবেইস</a></li>
+                        </ul>
+                    </div>
+                    <div class="widget-more">
+                        <a href="/site/view/important_links" class="btn">সকল লিংক <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- National Helpline -->
+                <div class="widget">
+                    <div class="widget-title">
+                        জরুরি হটলাইন
+                    </div>
+                    <div class="widget-content" style="text-align: center;">
+                        <img src="https://bteb.gov.bd/sites/default/files/files/admin.portal.gov.bd/npfblock/National-Helpline%20(1).jpg" alt="National Helpline" style="max-width: 100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+     <div class="footer-artwork" id="footer-artwork">&nbsp;</div>
+	<div class="footer-wrapper full-width" id="footer-wrapper">
+		<div id="footer-menu">
+
+        <ul><li><a href="/site/office/e39bf135-1850-4434-a1a5-20041e636dad/ম্যাপ">ম্যাপ</a></li><li><a href="/site/view/sitemap//সাইটম্যাপ">সাইটম্যাপ</a></li><li><a href="https://bteb.portal.gov.bd/site/page/1e71c906-bbfc-43e2-bda1-f4f436b03110">প্রতিষ্ঠানের তালিকা</a></li><li><a href="http://bteb.portal.gov.bd/site/page/859b6dd7-7566-48b5-8e2f-19daa43cb103">আমাদের সার্ভিস সমূহ</a></li></ul>                    <div style="float: left; font-size: .9em;">
+				সাইটটি শেষ হাল-নাগাদ করা হয়েছে: <span style="font-style: italic;">&#x09E8;&#x09E6;&#x09E8;&#x09EB;-&#x09E6;&#x09E9;-&#x09E8;&#x09EA; &#x09E7;&#x09EB;:&#x09EB;&#x09ED;:&#x09E8;&#x09EE;</span>
+				<!--<span><a href="http://support.portal.gov.bd/" style="color: green" target="_blank"> | <u>হেল্পডেস্ক</u></a></span>-->
+			</div>
+            </div>
+
+		<div class="footer-credit" id="footer">
+        <!--  -->
+        
+            <p>
+                পরিকল্পনা ও বাস্তবায়নে:&nbsp;
+                <a href="http://www.cabinet.gov.bd/">মন্ত্রিপরিষদ
+                    বিভাগ</a>,&nbsp;
+                <a href="https://a2i.gov.bd">এটুআই</a>,&nbsp;
+                <a href="http://www.bcc.net.bd/">বিসিসি</a>,&nbsp;
+                <a href="http://doict.gov.bd/">ডিওআইসিটি</a>&nbsp;ও&nbsp;
+                <a href="http://www.basis.org.bd/">বেসিস</a>।
+            </p>
+
+            <!-- <p>
+                কারিগরি সহায়তায়:<a href="https://a2i.gov.bd"><img
+                    style=""
+                    src="/themes/responsive_npf/img/a2i.png"
+                    alt=""></a>
+            </p> -->
+
+            <p>
+               কারিগরি সহায়তায়:
+                   <img style="vertical-align: baseline;" src="/themes/responsive_npf/img/np-logo-set.png" alt="">
+            </p>
+            
+
+
+
+
+        </div>
+		<!-- /footer -->
+	</div>
+
+    
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.menu-items').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Dropdown Menu Toggle for Mobile
+        const menuItems = document.querySelectorAll('.menu-items > li');
+        menuItems.forEach(item => {
+            if (window.innerWidth <= 768) {
+                item.addEventListener('click', function(e) {
+                    if (this.querySelector('.dropdown-menu')) {
+                        e.preventDefault();
+                        this.querySelector('.dropdown-menu').classList.toggle('active');
+                    }
+                });
+            }
+        });
+        
+        // News Ticker Animation
+        function newsTicker() {
+            const ticker = document.querySelector('.news-ticker ul');
+            if (!ticker) return;
+            
+            const firstItem = ticker.firstElementChild;
+            const itemHeight = firstItem.offsetHeight;
+            
+            setInterval(() => {
+                ticker.style.transition = 'transform 0.5s ease';
+                ticker.style.transform = `translateY(-${itemHeight}px)`;
+                
+                setTimeout(() => {
+                    ticker.appendChild(firstItem.cloneNode(true));
+                    ticker.removeChild(firstItem);
+                    ticker.style.transition = 'none';
+                    ticker.style.transform = 'translateY(0)';
+                }, 500);
+            }, 3000);
+        }
+        
+        // Initialize News Ticker
+        window.addEventListener('load', newsTicker);
+        
+        // Language Switch
+        document.querySelector('.lang-switch button').addEventListener('click', function() {
+            alert('Language switched to English');
+            // In a real implementation, this would change the language
+        });
+        
+        // Search Functionality
+        document.querySelector('.search-box button').addEventListener('click', function() {
+            const query = document.querySelector('.search-box input').value;
+            if (query.trim() !== '') {
+                alert(`Searching for: ${query}`);
+                // In a real implementation, this would perform the search
+            }
+        });
+        
+        // Make search work on Enter key
+        document.querySelector('.search-box input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.search-box button').click();
+            }
+        });
+    </script>
+</body>
+</html>
