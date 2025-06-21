@@ -1255,44 +1255,108 @@
     
      <div class="footer-artwork" id="footer-artwork">&nbsp;</div>
 	<div class="footer-wrapper full-width" id="footer-wrapper">
-		<div id="footer-menu">
+		<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <title>Bangladesh Govt Footer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Noto Sans Bengali", sans-serif;
+      background-color: #fff;
+    }
 
-        <ul><li><a href="/site/office/e39bf135-1850-4434-a1a5-20041e636dad/ম্যাপ">ম্যাপ</a></li><li><a href="/site/view/sitemap//সাইটম্যাপ">সাইটম্যাপ</a></li><li><a href="https://bteb.portal.gov.bd/site/page/1e71c906-bbfc-43e2-bda1-f4f436b03110">প্রতিষ্ঠানের তালিকা</a></li><li><a href="http://bteb.portal.gov.bd/site/page/859b6dd7-7566-48b5-8e2f-19daa43cb103">আমাদের সার্ভিস সমূহ</a></li></ul>                    <div style="float: left; font-size: .9em;">
-				সাইটটি শেষ হাল-নাগাদ করা হয়েছে: <span style="font-style: italic;">&#x09E8;&#x09E6;&#x09E8;&#x09EB;-&#x09E6;&#x09E9;-&#x09E8;&#x09EA; &#x09E7;&#x09EB;:&#x09EB;&#x09ED;:&#x09E8;&#x09EE;</span>
-				<!--<span><a href="http://support.portal.gov.bd/" style="color: green" target="_blank"> | <u>হেল্পডেস্ক</u></a></span>-->
-			</div>
-            </div>
+    .footer {
+      background-color: #eaeaea;
+      border-top: 5px solid #666;
+      padding: 20px;
+      font-size: 14px;
+      color: #333;
+    }
 
-		<div class="footer-credit" id="footer">
-        <!--  -->
-        
-            <p>
-                পরিকল্পনা ও বাস্তবায়নে:&nbsp;
-                <a href="http://www.cabinet.gov.bd/">মন্ত্রিপরিষদ
-                    বিভাগ</a>,&nbsp;
-                <a href="https://a2i.gov.bd">এটুআই</a>,&nbsp;
-                <a href="http://www.bcc.net.bd/">বিসিসি</a>,&nbsp;
-                <a href="http://doict.gov.bd/">ডিওআইসিটি</a>&nbsp;ও&nbsp;
-                <a href="http://www.basis.org.bd/">বেসিস</a>।
-            </p>
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
 
-            <!-- <p>
-                কারিগরি সহায়তায়:<a href="https://a2i.gov.bd"><img
-                    style=""
-                    src="/themes/responsive_npf/img/a2i.png"
-                    alt=""></a>
-            </p> -->
+    .footer-graphics {
+      background: url('https://i.imgur.com/jznvY3q.png') no-repeat left bottom;
+      background-size: contain;
+      height: 80px;
+      margin-bottom: 10px;
+    }
 
-            <p>
-               কারিগরি সহায়তায়:
-                   <img style="vertical-align: baseline;" src="/themes/responsive_npf/img/np-logo-set.png" alt="">
-            </p>
-            
+    .footer-left {
+      flex: 1;
+      min-width: 250px;
+    }
 
+    .footer-left h4 {
+      margin: 0 0 5px 0;
+      font-weight: bold;
+    }
 
+    .footer-right {
+      flex: 1;
+      min-width: 300px;
+      text-align: right;
+    }
 
+    .footer-right p {
+      margin: 0 0 8px 0;
+    }
 
+    .logo-row {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .logo-row img {
+      height: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-right {
+        text-align: left;
+        margin-top: 15px;
+      }
+      .logo-row {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="footer-graphics"></div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-left">
+        <h4>সাইট-ম্যাপ</h4>
+        <p>সাইটটি শেষ হাল-নাগাদ করা হয়েছে: ২০২৫-০৬-২১ ০৪:৪৮:১৩</p>
+      </div>
+      <div class="footer-right">
+        <p>পরিকল্পনা ও বাস্তবায়নে: মন্ত্রিপরিষদ বিভাগ, এটুআই, বিসিসি, আইসিটি বিভাগ ও ইউএনডিপি।</p>
+        <p>কারিগরি সহায়তায়:</p>
+        <div class="logo-row">
+          <img src="https://nctb.gov.bd/themes/responsive_npf/img/np-logo-set.png" alt="a2i">
+         
         </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
 		<!-- /footer -->
 	</div>
 
